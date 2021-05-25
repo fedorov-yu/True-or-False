@@ -17,6 +17,9 @@ class TrueOrFalse:
         self.__number_of_question = 0
 
     def open_file(self):
+        """
+        opening file from dir
+        """
         with open(self.__filename, encoding='utf-8') as file:
             for row in csv.reader(file, delimiter=";"):
                 self.__reader.append(row)
@@ -32,6 +35,9 @@ class TrueOrFalse:
         self.__number_of_question += 1
 
     def let_answer(self, answer):
+        """
+        get your answer and check it
+        """
         if self.__number_of_question > self.__count_questions:
             raise InvalidOperationError(f'No more questions {self.__number_of_question}')
         if self.game_status != GameStatus.IN_PROGRESS:
